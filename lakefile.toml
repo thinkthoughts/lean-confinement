@@ -1,0 +1,6 @@
+name = "lean-confinement"
+version = "0.1.0"
+defaultTargets = ["LeanConfinement"]
+
+[[lean_lib]]
+name = "LeanConfinement"
