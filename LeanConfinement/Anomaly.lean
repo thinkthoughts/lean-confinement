@@ -1,5 +1,5 @@
 namespace LeanConfinement
 
--- Goldstone checkpoint scaffold.
+-- Anomaly checkpoint scaffold.
 
 end LeanConfinement

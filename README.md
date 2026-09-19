@@ -1,10 +1,15 @@
 # lean-confinement
 
-Lean formalization of confinement, mass gaps, chiral symmetry, and
-Goldstone-mode specifications in gauge theories.
+Lean formalization of RG fixed-point structure, symmetry/anomaly constraints,
+confinement, mass generation, and Goldstone-mode specifications in gauge theories.
 
-The initial target is an abstract specification layer motivated by the
-September 18, 2026 CTQM seminar by Professor Anna Hasenfratz,
-“Confinement and mass generation without Goldstone Bosons: a new paradigm.”
+The initial mathematical target is motivated by Professor Anna Hasenfratz's
+September 18, 2026 CTQM seminar, *Confinement and mass generation without
+Goldstone Bosons: a new paradigm*, with emphasis on the continuum-QFT
+interpretation developed with Cenke Xu (arXiv:2604.02424).
 
-See [ROADMAP.md](ROADMAP.md) and [SPEC.md](SPEC.md).
+The project separates symmetry/anomaly constraints, RG beta-function models,
+fixed-point merger structure, phase specifications, lattice observables and
+finite-size scaling, and continuum interpretation.
+
+See [ROADMAP.md](ROADMAP.md) and [SPECIFICATION.md](SPECIFICATION.md).

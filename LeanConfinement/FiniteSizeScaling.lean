@@ -1,5 +1,5 @@
 namespace LeanConfinement
 
--- Goldstone checkpoint scaffold.
+-- FiniteSizeScaling checkpoint scaffold.
 
 end LeanConfinement
