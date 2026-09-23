@@ -1,4 +1,3 @@
-cat > LeanConfinement/Symmetry.lean <<'EOF'
 import LeanConfinement.Basic
 
 namespace LeanConfinement
@@ -16,6 +15,3 @@ def AreSymmetryPartners [Monoid G] [MulAction G Operator]
   g • O₁ = O₂
 
 end LeanConfinement
-EOF
-
-lake build

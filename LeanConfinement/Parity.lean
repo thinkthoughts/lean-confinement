@@ -25,8 +25,8 @@ theorem correlator_eq_of_symmetry
     (x origin : Site)
     (hInv : ExpectationInvariant E g)
     (hPartner : ∀ y : Site, AreSymmetryPartners g (O₁ y) (O₂ y))
-    (hMul : ActionRespectsMul g)
-    (hStar : ActionRespectsStar g) :
+    (hMul : ActionRespectsMul (Operator := Operator) g)
+    (hStar : ActionRespectsStar (Operator := Operator) g) :
     correlator E O₁ x origin = correlator E O₂ x origin := by
   unfold correlator
   rw [← hInv (O₁ x * star (O₁ origin))]
@@ -43,8 +43,8 @@ theorem parity_partner_correlators_eq
     (x origin : Site)
     (hInv : ExpectationInvariant E P)
     (hPartner : ∀ y : Site, AreParityPartners P (O₁ y) (O₂ y))
-    (hMul : ActionRespectsMul P)
-    (hStar : ActionRespectsStar P) :
+    (hMul : ActionRespectsMul (Operator := Operator) P)
+    (hStar : ActionRespectsStar (Operator := Operator) P) :
     correlator E O₁ x origin = correlator E O₂ x origin := by
   apply correlator_eq_of_symmetry E P O₁ O₂ x origin hInv
   · intro y
