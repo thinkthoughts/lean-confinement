@@ -1,6 +1,10 @@
 import LeanConfinement.Basic
 import LeanConfinement.Phase
 import LeanConfinement.Symmetry
+import LeanConfinement.Operator
+import LeanConfinement.Expectation
+import LeanConfinement.Correlator
+import LeanConfinement.Parity
 import LeanConfinement.Anomaly
 import LeanConfinement.RG
 import LeanConfinement.FixedPoint
