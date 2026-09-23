@@ -1,77 +1,81 @@
 # Specification
 
 ## Scope
-`lean-confinement` formalizes selected mathematical structures used to describe
-a proposed confining, fully gapped phase without conventional chiral symmetry
-breaking or Goldstone modes, together with the RG fixed-point picture used in
-its continuum-QFT interpretation.
+`lean-confinement` formalizes selected mathematical implications in the symmetric-mass-generation (SMG) discussion associated with Professor Anna Hasenfratz's seminar *Confinement and mass generation without Goldstone Bosons: a new paradigm*.
 
-The initial source target is Professor Anna Hasenfratz's September 18, 2026
-CTQM seminar, especially the continuum interpretation associated with
-Hasenfratz and Cenke Xu, arXiv:2604.02424.
+The first substantive target is:
+
+`exact unbroken symmetry + invariant action/measure (or expectation) + symmetry-related operators → equality of partner correlators`.
+
+A separate layer introduces the spectral assumptions under which equal correlators imply equal extracted masses.
+
+## Why this target
+This contains a genuine logical step from symmetry assumptions to an observable relation. It also cleanly separates a mathematical implication from the evidence that a numerical system realizes its assumptions.
+
+Lean checks the conditional implication from encoded assumptions; the repository does not claim that Lean establishes the empirical inputs.
 
 ## Specification principle
-Definitions specify mathematical objects. Physical implications enter only as
-explicit assumptions or source-supported propositions.
+Leading assumptions are explicit in theorem statements. Definitions must not silently encode the conclusion.
 
-Keep distinct:
-- lattice observables
-- phase-property inferences
-- RG/effective descriptions
-- continuum generalizations
+- symmetry invariance: assumption or separately proved property
+- correlator equality: theorem target
+- spectral interpretation: additional specification
+- mass equality: downstream conditional result
+- numerical realization: evidence external to the kernel proof unless separately formalized
 
-## Layer 1 — RG objects
-Initial objects include couplings, beta functions, RG flow, fixed points,
-IR/UV classifications, and parameter-dependent fixed-point merger. A fixed
-point is represented by vanishing beta functions; IR/UV labels require
-explicit stability or direction data.
+## Layer 1 — Configurations and symmetry
+Introduce a configuration/field type `χ`, symmetry transformation/group `G`, its action, observables/operators, and an expectation functional. Keep the abstraction minimal rather than pretending to formalize the complete path integral.
 
-## Layer 2 — Symmetry and anomaly constraints
-Represent symmetry specifications, gauged/global symmetry, anomaly constraints,
-anomaly-free reductions, and symmetry-preserving versus symmetry-breaking mass
-generation. Anomaly cancellation alone is not encoded as sufficient for SMG.
+## Layer 2 — Invariant expectation
+Represent invariance explicitly, schematically `⟨F⟩ = ⟨G • F⟩`. A later lattice-specific layer may derive this from invariance of action and measure; the generic theorem may take it as a named assumption.
 
-## Layer 3 — Phase predicates
-Keep `Confining`, `Gapped`, `Conformal`, `BilinearChiralCondensate`,
-`HasGoldstoneModes`, `ChiralSymmetryBroken`, and `TasteBroken` logically
-separable unless a theorem or assumption connects them.
+## Layer 3 — Symmetry partners
+Represent `G O₁ G⁻¹ = O₂`. Lean may use a group action on operators if that is the faithful abstraction; document its correspondence to the written notation.
 
-## Layer 4 — Fixed-point merger
-The first equation-level target is the two-coupling RG ansatz illustrating
-separate IR/UV fixed points and their possible merger. Prove only algebraic
-consequences of the encoded beta functions and parameter assumptions.
-Applicability to a particular gauge theory remains a separate interpretation.
+## Layer 4 — Correlators
+Define `C_O(x) = ⟨O(x) O†(0)⟩`, introducing no more analytic or measure-theoretic structure than required.
 
-## Layer 5 — Taste observable
-Introduce `R = M_PS / M_PS2` with positivity/nonzero-denominator assumptions.
-Express limiting or continuity claims without turning numerical evidence into
-definitional equality.
+## Layer 5 — Primary theorem
+Target schematically:
 
-## Layer 6 — Finite-size scaling
-Represent finite-volume observables and scaling variables sufficiently to state
-the competing transition scenarios. Curve collapse, fitted exponents, and
-model preference are evidence rather than kernel-proved consequences of the
-abstract definitions.
+`invariant expectation ∧ symmetryPartner G O₁ O₂ → C_O₁(x) = C_O₂(x)`.
 
-## Model instances
-Later checkpoints may instantiate SU(2), N_f = 4; SU(3), N_f = 8;
-staggered-fermion lattice actions; and taste-breaking four-fermion interactions.
+Completion requires visible assumptions, no `sorry`, successful `lake build`, written-math correspondence, and a kernel-checked proof.
 
-## Source-proof target
-The first complete proof should be a compact algebraic result about fixed
-points or their merger derived from an explicitly transcribed source equation.
+## Layer 6 — Spectral assumptions
+Correlator equality alone is not mass equality. Introduce an explicit spectral interpretation or mass-extraction map and expose assumptions about asymptotic behavior, overlap, uniqueness, or domain as required.
 
-Required provenance:
-- source paper/equation or slide
-- encoded assumptions
-- Lean statement
-- kernel-checked proof
-- interpretation note
+## Layer 7 — Parity doubling
+Keep two implications separate:
+
+`exact symmetry → equal partner correlators`
+
+`equal partner correlators + spectral assumptions → equal extracted masses`.
+
+## Layer 8 — SMG order parameter
+Formalize the source-defined transformation structure of `V² − A²` before committing to lattice-specific Lean declarations.
+
+## Layer 9 — Logical alternatives
+Formalize that absence of a bilinear condensate alone does not specify a gapless phase. Represent bilinear symmetry breaking, symmetric gapless, symmetric massive, and SMG/topological or other nontrivial IR alternatives without unsupported exhaustiveness.
+
+## Layer 10 — Lattice-specific realization
+After the generic theorem works, instantiate it with the staggered symmetry transformations and bilinear operators used in the SMG analysis.
+
+## Layer 11 — Anomaly structure
+Defer the 't Hooft-anomaly obstruction until anomaly, gauging, anomaly matching, and allowed IR realizations can be represented without overstating what has been proved.
+
+## Layer 12 — RG model
+Keep the RG beta-function/fixed-point-merger model in scope as a secondary target. Future work should distinguish algebraic consequences of specified beta functions from claims about applicability to the physical system.
 
 ## Evidence boundary
-    specified lattice reading
-        → explicit inference assumptions
-        → phase/RG statement
-        → admissible continuum interpretation
+`numerical/lattice evidence → explicit physical assumptions → kernel-checked conditional theorem → explicit spectral assumptions → physical interpretation`
 
-No arrow is supplied merely by naming the endpoint.
+The kernel certifies the formal implication from encoded assumptions. It does not certify that nature satisfies those assumptions.
+
+## Review criterion
+A physicist unfamiliar with Lean should be able to identify:
+1. the written mathematical statement,
+2. its assumptions,
+3. the corresponding Lean theorem,
+4. what the kernel checked,
+5. what remains physical or numerical input.

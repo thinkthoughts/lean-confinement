@@ -1,83 +1,58 @@
 # lean-confinement Roadmap
 
-Lean formalization of RG fixed-point structure, symmetry/anomaly constraints,
-confinement, mass generation, and Goldstone-mode specifications in gauge theories.
+This revision makes Professor Anna Hasenfratz's suggested symmetry → partner-correlator equality → parity-doubling argument the first substantive Lean target.
 
-This revision follows the mathematical structure exposed in the September 18,
-2026 CTQM seminar rather than beginning from phase labels alone.
+## CP1 — Symmetry action and expectation
+Introduce configurations, symmetry transformations, observables, an expectation functional, and explicit invariance assumptions. Do not infer physical realization from definitions.
 
-## CP1 — Core mathematical vocabulary
-Introduce abstract theories, couplings, RG flows, observables, and phase
-specifications. Keep physical implications out of definitions.
+## CP2 — Symmetry-related operators
+Represent the source-level relation `G O₁ G⁻¹ = O₂`, using a group action on operators where appropriate.
 
-## CP2 — Symmetry and anomaly constraints
-Formalize global/gauged symmetries, anomaly constraints, anomaly-free
-subgroups, and admissibility conditions for a symmetric gapped phase.
-Anomaly cancellation is treated as necessary rather than automatically
-sufficient for symmetric mass generation.
+## CP3 — Two-point correlators
+Define `C_O(x) = ⟨O(x) O†(0)⟩` with the minimum operator/adjoint structure required.
 
-## CP3 — RG beta-function model
-Encode the simple NJL-inspired two-coupling beta-function ansatz used for the
-continuum-QFT interpretation: gauge coupling, symmetry-reducing four-fermion
-coupling, beta functions, and fixed points as simultaneous zeros. Coefficients
-and assumptions remain explicit.
+## CP4 — Partner-correlator equality
+First primary kernel-checked theorem. From exact/unbroken symmetry, invariant expectation (or action/measure), and symmetry-related operators, prove
 
-## CP4 — Fixed points
-Define and distinguish Gaussian, infrared, ultraviolet, and critical fixed
-points. Prove algebraic fixed-point statements for a chosen specialization of
-the beta-function ansatz.
+`⟨O₁(x) O₁†(0)⟩ = ⟨O₂(x) O₂†(0)⟩`.
 
-## CP5 — IR/UV fixed-point merger
-Formalize parameter dependence and the merger condition. Candidate theorem:
-below the critical parameter the IR and UV fixed points are distinct; at the
-critical parameter they coincide; the four-fermion direction becomes marginal
-at the merger. Separate algebraic consequences from physical interpretation.
+Milestone: `lake build`, no `sorry`, assumptions documented, and written math shown beside the Lean theorem.
 
-## CP6 — Symmetry at the merger
-Specify symmetry content attached to the IR and UV fixed points. Formalize the
-source-specific merged scenario only after its assumptions are explicit.
+## CP5 — Spectral interpretation
+Introduce separately the assumptions required to extract masses from correlators. Do not define correlator equality to mean mass equality.
 
-## CP7 — Phase specifications and symmetric mass generation
-Define conformal/gapless, conventional chirally broken, confining/fully gapped,
-symmetric-mass-generation, no-bilinear-condensate, no-Goldstone, and
-taste-breaking specifications. Physical realization does not follow from the
-specification itself.
+## CP6 — Parity doubling / mass degeneracy
+Prove conditionally:
 
-## CP8 — Staggered-fermion and taste structure
-Add staggered fermions, taste-breaking interactions, taste restoration/breaking
-indicators, and the taste ratio `R = M_PS / M_PS2`. Distinguish exact lattice,
-approximate/emergent taste, and continuum symmetry.
+`partner-correlator equality + shared spectral interpretation → equal extracted masses`.
 
-## CP9 — Finite-size scaling
-Represent dimensionless combinations such as `L * M_PS`, scaling variables
-near a critical coupling, curve-collapse specifications, and competing
-ordinary second-order versus fixed-point-merger/BKT-like scaling assumptions.
-Numerical fits remain evidence supplied to the formal layer.
+Keep exact symmetry mathematics, spectral assumptions, numerical evidence, and physical conclusion distinct.
 
-## CP10 — Evidence → interpretation boundary
-Represent four levels:
-1. lattice observables,
-2. inferred phase properties,
-3. RG/effective-theory descriptions,
-4. continuum-QFT generalizations.
+## CP7 — SMG order parameter
+Formalize transformation properties of the quantity discussed schematically as `V² − A²`: which lattice symmetries preserve it and which are broken by a nonzero expectation value.
 
-Record assumptions permitting movement between levels.
+## CP8 — Phase logic
+Formalize the point that absence of a bilinear condensate alone does not imply gaplessness. Distinguish bilinear symmetry breaking, symmetric gapless, symmetric massive, and SMG/topological or other nontrivial IR structures without asserting unsupported exhaustiveness.
 
-## CP11 — Model instances
-Add descriptors for SU(2) with N_f = 4 and SU(3) with N_f = 8. Keep model
-identity separate from numerically or analytically established claims.
+## CP9 — Lattice realization
+Instantiate the generic theorem with the staggered-fermion symmetry transformations and bilinear operators actually used in the SMG analysis.
 
-## CP12 — Source-proof checkpoint
-Choose one equation-level result from the Hasenfratz–Xu continuum model and
-complete an end-to-end Lean proof.
+## CP10 — Evidence → theorem boundary
+Keep four levels explicit: lattice/numerical correlators; evidence for unbroken symmetry; kernel-checked conditional implications; spectral/physical interpretation.
 
-Preferred first target: an algebraic statement about the beta-function fixed
-points and their merger.
+## CP11 — Anomaly obstruction
+Longer-term target: formalize enough symmetry, gauging, 't Hooft anomaly, anomaly matching, and IR structure to state an obstruction to a trivially gapped symmetry-preserving IR. Do not approximate this with an overstrong propositional placeholder.
 
-Completion criteria:
-- `lake build` succeeds
-- no `sorry`
-- assumptions documented
-- source equation identified
-- numerical evidence distinguished from analytic assumptions
-- physical interpretation documented separately from the proof
+## CP12 — RG / fixed-point model
+Retain beta functions and the IR/UV fixed-point-merger model as a secondary target. The goal is explicit assumptions and consequences, rather than kernel-checking elementary algebra alone.
+
+## First deliverable for review
+1. Identify the exact source symmetry transformation and partner operators.
+2. Show the theorem in ordinary mathematical notation.
+3. Show the corresponding Lean theorem.
+4. Document every assumption.
+5. Prove it with no `sorry`.
+6. Confirm `lake build`.
+7. Explain what the Lean kernel checked and what remains physical/numerical input.
+
+The first-result README should be understandable to a physicist with no prior Lean experience.
