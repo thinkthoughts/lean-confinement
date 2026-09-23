@@ -28,8 +28,10 @@ Prove conditionally:
 
 Keep exact symmetry mathematics, spectral assumptions, numerical evidence, and physical conclusion distinct.
 
-## CP7 — SMG order parameter
-Formalize transformation properties of the quantity discussed schematically as `V² − A²`: which lattice symmetries preserve it and which are broken by a nonzero expectation value.
+## CP7 — Taste-breaking four-fermion interaction
+Formalize the source-backed interaction `u(S² − P²)`, corresponding to the seminar expression with `S = ψ̄ψ` and `P = ψ̄(γ₅ ⊗ ξ₅)ψ`.
+
+Keep the fermion-field realization, symmetry-breaking interpretation, and RG relevance of the coupling `u` outside this checkpoint. The earlier schematic `V² − A²` target remains source-pending; that expression was not found in the current seminar slides or cited papers.
 
 ## CP8 — Phase logic
 Formalize the point that absence of a bilinear condensate alone does not imply gaplessness. Distinguish bilinear symmetry breaking, symmetric gapless, symmetric massive, and SMG/topological or other nontrivial IR structures without asserting unsupported exhaustiveness.
