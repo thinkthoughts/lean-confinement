@@ -129,8 +129,7 @@ implies
 
 `¬ AllowedInPrinciple`.
 
-Anomaly classes, anomaly matching, gauging, and model-specific dynamical
-realization remain source-level prerequisites for subsequent formalization.
+Anomaly classes, anomaly matching, gauging, and model-specific dynamical realization supply source-level prerequisites for subsequent formalization.
 
 Status: implemented and kernel-checked.
 
