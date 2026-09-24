@@ -76,7 +76,7 @@ After the generic theorem works, instantiate it with the staggered symmetry tran
 Defer the 't Hooft-anomaly obstruction until anomaly, gauging, anomaly matching, and allowed IR realizations can be represented without overstating what has been proved.
 
 ## Layer 12 — RG model
-Keep the RG beta-function/fixed-point-merger model in scope as a secondary target. Future work should distinguish algebraic consequences of specified beta functions from claims about applicability to the physical system.
+Formalize the RG beta-function/fixed-point-merger model through the source-backed quadratic-zero specification. Distinguish algebraic consequences of the specified beta function from claims about applicability to the physical system.
 
 ## Evidence boundary
 `numerical/lattice evidence → explicit physical assumptions → kernel-checked conditional theorem → explicit spectral assumptions → physical interpretation`
