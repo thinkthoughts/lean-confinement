@@ -52,8 +52,19 @@ Keep two implications separate:
 
 `equal partner correlators + spectral assumptions → equal extracted masses`.
 
-## Layer 8 — SMG order parameter
-Formalize the source-defined transformation structure of `V² − A²` before committing to lattice-specific Lean declarations.
+## Layer 8 — Taste-breaking four-fermion structure
+
+Formalize the source-backed squared-difference structure
+
+\[
+S^2 - P^2,
+\]
+
+corresponding to the scalar and pseudoscalar taste bilinears appearing
+in the taste-breaking four-fermion interaction. Treat the overall
+coupling as an abstract coefficient rather than identifying conventions
+across sources. The formalization specifies the algebraic interaction
+structure; it does not infer RG relevance or physical realization.
 
 ## Layer 9 — Logical alternatives
 Formalize that absence of a bilinear condensate alone does not specify a gapless phase. Represent bilinear symmetry breaking, symmetric gapless, symmetric massive, and SMG/topological or other nontrivial IR alternatives without unsupported exhaustiveness.
