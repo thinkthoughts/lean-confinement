@@ -21,10 +21,10 @@ Leading assumptions are explicit in theorem statements. Definitions must not sil
 - correlator equality: theorem target
 - spectral interpretation: additional specification
 - mass equality: downstream conditional result
-- numerical realization: evidence external to the kernel proof unless separately formalized
+- numerical realization: empirical reading point supplying physical realization of the encoded assumptions
 
 ## Layer 1 — Configurations and symmetry
-Introduce a configuration/field type `χ`, symmetry transformation/group `G`, its action, observables/operators, and an expectation functional. Keep the abstraction minimal; a complete path-integral specification remains a subsequent layer.
+Introduce a configuration/field type `χ`, symmetry transformation/group `G`, its action, observables/operators, and an expectation functional. Keep the abstraction minimal; a complete path-integral specification enters at a subsequent layer.
 
 ## Layer 2 — Invariant expectation
 Represent invariance explicitly, schematically `⟨F⟩ = ⟨G • F⟩`. A later lattice-specific layer may derive this from invariance of action and measure; the generic theorem may take it as a named assumption.
@@ -67,16 +67,16 @@ The formalization specifies the algebraic interaction structure; RG relevance
 and physical realization enter at subsequent specification layers.
 
 ## Layer 9 — Logical alternatives
-Leave gaplessness unspecified by absence of a bilinear condensate alone. Represent bilinear symmetry breaking, symmetric gapless, symmetric massive, and SMG/topological or other nontrivial IR alternatives without unsupported exhaustiveness.
+Leave gaplessness unspecified by absence of a bilinear condensate alone. Represent bilinear symmetry breaking, symmetric gapless, symmetric massive, and SMG/topological or other nontrivial IR alternatives as explicitly specified phase possibilities.
 
 ## Layer 10 — Lattice-specific realization
 After the generic theorem works, instantiate it with the staggered symmetry transformations and bilinear operators used in the SMG analysis.
 
 ## Layer 11 — Anomaly structure
-Defer the 't Hooft-anomaly obstruction until anomaly, gauging, anomaly matching, and allowed IR realizations can be represented without overstating what has been proved.
+Introduce the 't Hooft-anomaly obstruction through explicit specifications of anomaly freedom and allowed-in-principle phases. Anomaly classes, gauging, anomaly matching, and model-specific IR realizations enter as subsequent specification layers.
 
 ## Layer 12 — RG model
-Formalize the RG beta-function/fixed-point-merger model through the source-backed quadratic-zero specification. Distinguish algebraic consequences of the specified beta function from claims about applicability to the physical system.
+Formalize the RG beta-function/fixed-point-merger model through the source-backed quadratic-zero specification. Formalize the algebraic consequences of the specified beta function; applicability to the physical system supplies a subsequent physical reading point.
 
 ## Evidence boundary
 `numerical/lattice evidence → explicit physical assumptions → kernel-checked conditional theorem → explicit spectral assumptions → physical interpretation`
@@ -89,4 +89,4 @@ A physicist unfamiliar with Lean should be able to identify:
 2. its assumptions,
 3. the corresponding Lean theorem,
 4. what the kernel checked,
-5. what remains physical or numerical input.
+5. which physical or numerical inputs supply the theorem assumptions.
