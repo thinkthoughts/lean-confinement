@@ -19,7 +19,8 @@ condition: `4 * 2 = 8`.
 -/
 theorem su2_nf4_satisfiesAnomalyCancellationCondition :
     SatisfiesAnomalyCancellationCondition 4 2 := by
-  decide
+  unfold SatisfiesAnomalyCancellationCondition
+  use 1
 
 /--
 The SU(3), `Nf = 8` model satisfies the specified arithmetic
@@ -27,6 +28,7 @@ condition: `8 * 3 = 24`.
 -/
 theorem su3_nf8_satisfiesAnomalyCancellationCondition :
     SatisfiesAnomalyCancellationCondition 8 3 := by
-  norm_num [SatisfiesAnomalyCancellationCondition]
+  unfold SatisfiesAnomalyCancellationCondition
+  use 3
 
 end LeanConfinement
