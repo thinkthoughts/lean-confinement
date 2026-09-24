@@ -22,7 +22,7 @@ definition is therefore used for both fields.
 This definition specifies the field transformation only. It does not
 assert invariance of a lattice action under that transformation.
 -/
-def stagTransform (α : ℝ) {d : Nat} (F : StaggeredField d Value) :
+noncomputable def stagTransform (α : ℝ) {d : Nat} (F : StaggeredField d Value) :
     StaggeredField d Value :=
   fun x => Uepsilon α x • F x
 
