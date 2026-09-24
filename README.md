@@ -34,8 +34,7 @@ Additional modules formalize:
 ## Evidence boundary
 
 The Lean proofs are conditional on their stated mathematical assumptions.
-They do not establish from numerical data that a particular gauge theory
-realizes those assumptions.
+Numerical evidence supplies the physical reading point; the Lean results establish the specified consequences of the encoded assumptions.
 
 The intended separation is:
 
