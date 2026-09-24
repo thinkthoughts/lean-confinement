@@ -83,9 +83,7 @@ formalization can supply a derivation from action and measure invariance.
 `Operator.lean` represents the action of a symmetry on operators and the
 relation between partner operators.
 
-The formal structure keeps the partner relation explicit. Equality of
-correlators is then available as a theorem target rather than as part of the
-definition of a partner.
+The formal structure keeps the partner relation explicit. Correlator equality then enters as a theorem consequence of the specified partner relation.
 
 The action is also required to respect the algebraic operations used in a
 two-point function, including multiplication and adjoint/star.
