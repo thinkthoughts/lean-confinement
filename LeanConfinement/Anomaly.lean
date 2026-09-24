@@ -27,6 +27,6 @@ condition: `8 * 3 = 24`.
 -/
 theorem su3_nf8_satisfiesAnomalyCancellationCondition :
     SatisfiesAnomalyCancellationCondition 8 3 := by
-  decide
+  norm_num [SatisfiesAnomalyCancellationCondition]
 
 end LeanConfinement
