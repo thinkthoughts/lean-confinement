@@ -53,8 +53,7 @@ Relevant reading points include:
 - and finite-size-scaling comparisons between a second-order fit and a
   merged-fixed-point fit.
 
-These numerical observations motivate formal targets while remaining
-source-level evidence for the physical realization.
+These numerical observations motivate formal targets and supply source-level evidence for the physical realization.
 
 ### Staggered / four-fermion layer
 The seminar writes the free staggered lattice action with the staggered sign
