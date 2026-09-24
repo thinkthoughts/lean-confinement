@@ -12,7 +12,7 @@ A separate layer introduces the spectral assumptions under which equal correlato
 ## Why this target
 This contains a genuine logical step from symmetry assumptions to an observable relation. It also cleanly separates a mathematical implication from the evidence that a numerical system realizes its assumptions.
 
-Lean checks the conditional implication from encoded assumptions; the repository does not claim that Lean establishes the empirical inputs.
+Empirical inputs supply the physical reading point; Lean checks the conditional implication from the encoded assumptions.
 
 ## Specification principle
 Leading assumptions are explicit in theorem statements. Definitions must not silently encode the conclusion.
@@ -24,7 +24,7 @@ Leading assumptions are explicit in theorem statements. Definitions must not sil
 - numerical realization: evidence external to the kernel proof unless separately formalized
 
 ## Layer 1 — Configurations and symmetry
-Introduce a configuration/field type `χ`, symmetry transformation/group `G`, its action, observables/operators, and an expectation functional. Keep the abstraction minimal rather than pretending to formalize the complete path integral.
+Introduce a configuration/field type `χ`, symmetry transformation/group `G`, its action, observables/operators, and an expectation functional. Keep the abstraction minimal; a complete path-integral specification remains a subsequent layer.
 
 ## Layer 2 — Invariant expectation
 Represent invariance explicitly, schematically `⟨F⟩ = ⟨G • F⟩`. A later lattice-specific layer may derive this from invariance of action and measure; the generic theorem may take it as a named assumption.
@@ -43,7 +43,7 @@ Target schematically:
 Completion requires visible assumptions, no `sorry`, successful `lake build`, written-math correspondence, and a kernel-checked proof.
 
 ## Layer 6 — Spectral assumptions
-Correlator equality alone is not mass equality. Introduce an explicit spectral interpretation or mass-extraction map and expose assumptions about asymptotic behavior, overlap, uniqueness, or domain as required.
+Mass equality enters through an explicit spectral interpretation or mass-extraction map applied to equal correlators. Expose assumptions about asymptotic behavior, overlap, uniqueness, or domain as required.
 
 ## Layer 7 — Parity doubling
 Keep two implications separate:
@@ -62,12 +62,12 @@ S^2 - P^2,
 
 corresponding to the scalar and pseudoscalar taste bilinears appearing
 in the taste-breaking four-fermion interaction. Treat the overall
-coupling as an abstract coefficient rather than identifying conventions
-across sources. The formalization specifies the algebraic interaction
-structure; it does not infer RG relevance or physical realization.
+coupling as an abstract coefficient shared across the source conventions.
+The formalization specifies the algebraic interaction structure; RG relevance
+and physical realization enter at subsequent specification layers.
 
 ## Layer 9 — Logical alternatives
-Formalize that absence of a bilinear condensate alone does not specify a gapless phase. Represent bilinear symmetry breaking, symmetric gapless, symmetric massive, and SMG/topological or other nontrivial IR alternatives without unsupported exhaustiveness.
+Leave gaplessness unspecified by absence of a bilinear condensate alone. Represent bilinear symmetry breaking, symmetric gapless, symmetric massive, and SMG/topological or other nontrivial IR alternatives without unsupported exhaustiveness.
 
 ## Layer 10 — Lattice-specific realization
 After the generic theorem works, instantiate it with the staggered symmetry transformations and bilinear operators used in the SMG analysis.
@@ -81,7 +81,7 @@ Formalize the RG beta-function/fixed-point-merger model through the source-backe
 ## Evidence boundary
 `numerical/lattice evidence → explicit physical assumptions → kernel-checked conditional theorem → explicit spectral assumptions → physical interpretation`
 
-The kernel certifies the formal implication from encoded assumptions. It does not certify that nature satisfies those assumptions.
+The kernel certifies the formal implication from encoded assumptions; physical realization supplies a separate empirical reading point for those assumptions.
 
 ## Review criterion
 A physicist unfamiliar with Lean should be able to identify:
