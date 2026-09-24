@@ -15,8 +15,8 @@ expectation functional, and explicit invariance assumptions.
 Status: implemented.
 
 ## CP2 — Symmetry-related operators
-Represent symmetry-related operators using an explicit action rather than
-encoding correlator equality in the definition.
+Represent symmetry-related operators through an explicit action, with
+correlator equality supplied later as a theorem consequence.
 
 Status: implemented.
 
@@ -40,8 +40,8 @@ Status: implemented and kernel-checked.
 ## CP5 — Spectral interpretation
 Introduce a shared mass-extraction map separately from correlator equality.
 
-This checkpoint deliberately does not identify correlator equality with mass
-equality by definition.
+This checkpoint keeps correlator equality and mass equality as separate
+specifications; the shared mass-extraction map supplies the bridge.
 
 Status: implemented.
 
@@ -54,8 +54,8 @@ Schematic statement:
 `equal partner correlators + shared mass extractor`
 → `equal extracted masses`
 
-The concrete physical identification of measured lattice channels remains
-external to this generic theorem.
+The concrete physical identification of measured lattice channels enters as a
+subsequent source-level specification for this generic theorem.
 
 Status: implemented and kernel-checked.
 
@@ -69,21 +69,24 @@ and an interaction with an abstract overall coefficient
 `u(S² − P²)`.
 
 In the source correspondence, `S` represents the scalar bilinear and `P` the
-pseudoscalar taste bilinear. The abstract coefficient avoids identifying
-different overall coefficient/sign conventions across sources.
+pseudoscalar taste bilinear. The abstract coefficient preserves the shared
+algebraic structure across differing overall coefficient/sign conventions in
+the sources.
 
-RG relevance and physical realization are not inferred here.
+RG relevance and physical realization enter at subsequent specification
+layers.
 
 Status: implemented.
 
 ## CP8 — Phase logic
 Represent mass gap, bilinear condensate, symmetry preservation, and Goldstone
-modes as independent properties.
+modes as separate properties.
 
-Prove that absence of a bilinear condensate alone supplies no implication to
-gaplessness.
+Prove by explicit witness that absence of a bilinear condensate alone leaves
+gaplessness unspecified.
 
-No exhaustive classification of infrared phases is asserted.
+The present predicates provide vocabulary for additional infrared-phase
+specifications as those classifications are introduced explicitly.
 
 Status: implemented.
 
@@ -91,18 +94,18 @@ Status: implemented.
 Formalize the staggered lattice site, parity sign, `U(1)_ε` phase, staggered
 field transformation, and round-trip transformation identity.
 
-This checkpoint does not claim that the formalized transformation by itself
-establishes action/measure invariance or the concrete parity-partner relation
-for measured lattice operators.
+This checkpoint establishes the specified transformation algebra. Action/measure
+invariance and the concrete parity-partner relation for measured lattice
+operators enter as additional specifications.
 
 Status: implemented.
 
 ## CP10 — Evidence → theorem boundary
 Represent validity on a specified sample separately from universal validity
-and exhibit that sample validity alone supplies no universal implication.
+and exhibit a model where sample validity and universal validity differ.
 
-This keeps numerical evidence distinct from a kernel-checked theorem whose
-assumptions are explicitly stated.
+This specifies the boundary between numerical evidence and a kernel-checked
+theorem whose assumptions are explicitly stated.
 
 Status: implemented.
 
@@ -126,8 +129,8 @@ implies
 
 `¬ AllowedInPrinciple`.
 
-This does not formalize an anomaly class, anomaly matching, gauging, or prove
-that anomaly freedom dynamically produces a symmetric gapped phase.
+Anomaly classes, anomaly matching, gauging, and model-specific dynamical
+realization remain source-level prerequisites for subsequent formalization.
 
 Status: implemented and kernel-checked.
 
@@ -141,8 +144,9 @@ as a factor, i.e. a zero of multiplicity at least two at `g*`.
 
 Prove that the quadratic polynomial model satisfies this specification.
 
-This formalizes the source-backed quadratic-zero structure without inferring
-that measured RG flow in a particular gauge theory realizes the model.
+This checkpoint establishes the source-backed quadratic-zero structure.
+Applicability to measured RG flow in a particular gauge theory enters as a
+separate physical reading point.
 
 Status: implemented and kernel-checked.
 
@@ -158,7 +162,7 @@ The completed repository follows the chain:
 
 The Lean kernel checks the formal implications from encoded assumptions.
 Numerical realization, continuum applicability, and physical interpretation
-remain separate unless explicitly represented as assumptions.
+supply separate reading points unless explicitly represented as assumptions.
 
 ## Verification
 
