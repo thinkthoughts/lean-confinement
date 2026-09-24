@@ -10,7 +10,7 @@ field content.
 abbrev StaggeredField (d : Nat) (Value : Type*) :=
   LatticeSite d → Value
 
-variable {Value : Type*} [AddCommMonoid Value] [Module ℂ Value]
+variable {Value : Type*} [Module ℂ Value]
 
 /--
 The staggered `U(1)` transformation of a field by phase `α`.
