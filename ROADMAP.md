@@ -1,60 +1,171 @@
 # lean-confinement Roadmap
 
-This revision makes Professor Anna Hasenfratz's suggested symmetry → partner-correlator equality → parity-doubling argument the first substantive Lean target.
+This roadmap records the completed CP1–CP12 formalization motivated by
+Professor Anna Hasenfratz's symmetry → partner-correlator equality →
+parity-doubling argument and the associated SMG discussion.
+
+The checkpoints separate kernel-checked mathematical implications from
+lattice evidence, spectral interpretation, and claims about physical
+realization.
 
 ## CP1 — Symmetry action and expectation
-Introduce configurations, symmetry transformations, observables, an expectation functional, and explicit invariance assumptions. Do not infer physical realization from definitions.
+Introduce configurations, symmetry transformations, observables, an
+expectation functional, and explicit invariance assumptions.
+
+Status: implemented.
 
 ## CP2 — Symmetry-related operators
-Represent the source-level relation `G O₁ G⁻¹ = O₂`, using a group action on operators where appropriate.
+Represent symmetry-related operators using an explicit action rather than
+encoding correlator equality in the definition.
+
+Status: implemented.
 
 ## CP3 — Two-point correlators
-Define `C_O(x) = ⟨O(x) O†(0)⟩` with the minimum operator/adjoint structure required.
+Define the correlator from an expectation functional, operator multiplication,
+and adjoint/star structure.
+
+Status: implemented.
 
 ## CP4 — Partner-correlator equality
-First primary kernel-checked theorem. From exact/unbroken symmetry, invariant expectation (or action/measure), and symmetry-related operators, prove
+Prove the primary kernel-checked implication from explicit symmetry assumptions
+to equality of partner correlators.
 
-`⟨O₁(x) O₁†(0)⟩ = ⟨O₂(x) O₂†(0)⟩`.
+Schematic statement:
 
-Milestone: `lake build`, no `sorry`, assumptions documented, and written math shown beside the Lean theorem.
+`invariant expectation + symmetry-related operators`
+→ `equal partner correlators`
+
+Status: implemented and kernel-checked.
 
 ## CP5 — Spectral interpretation
-Introduce separately the assumptions required to extract masses from correlators. Do not define correlator equality to mean mass equality.
+Introduce a shared mass-extraction map separately from correlator equality.
+
+This checkpoint deliberately does not identify correlator equality with mass
+equality by definition.
+
+Status: implemented.
 
 ## CP6 — Parity doubling / mass degeneracy
-Prove conditionally:
+Compose partner-correlator equality with the shared spectral interpretation to
+obtain equal extracted masses.
 
-`partner-correlator equality + shared spectral interpretation → equal extracted masses`.
+Schematic statement:
 
-Keep exact symmetry mathematics, spectral assumptions, numerical evidence, and physical conclusion distinct.
+`equal partner correlators + shared mass extractor`
+→ `equal extracted masses`
+
+The concrete physical identification of measured lattice channels remains
+external to this generic theorem.
+
+Status: implemented and kernel-checked.
 
 ## CP7 — Taste-breaking four-fermion interaction
-Formalize the source-backed interaction `u(S² − P²)`, corresponding to the seminar expression with `S = ψ̄ψ` and `P = ψ̄(γ₅ ⊗ ξ₅)ψ`.
+Formalize the source-backed squared-difference structure
 
-Keep the fermion-field realization, symmetry-breaking interpretation, and RG relevance of the coupling `u` outside this checkpoint. The earlier schematic `V² − A²` target remains source-pending; that expression was not found in the current seminar slides or cited papers.
+`S² − P²`
+
+and an interaction with an abstract overall coefficient
+
+`u(S² − P²)`.
+
+In the source correspondence, `S` represents the scalar bilinear and `P` the
+pseudoscalar taste bilinear. The abstract coefficient avoids identifying
+different overall coefficient/sign conventions across sources.
+
+RG relevance and physical realization are not inferred here.
+
+Status: implemented.
 
 ## CP8 — Phase logic
-Formalize the point that absence of a bilinear condensate alone does not imply gaplessness. Distinguish bilinear symmetry breaking, symmetric gapless, symmetric massive, and SMG/topological or other nontrivial IR structures without asserting unsupported exhaustiveness.
+Represent mass gap, bilinear condensate, symmetry preservation, and Goldstone
+modes as independent properties.
 
-## CP9 — Lattice realization
-Instantiate the generic theorem with the staggered-fermion symmetry transformations and bilinear operators actually used in the SMG analysis.
+Prove that absence of a bilinear condensate alone supplies no implication to
+gaplessness.
+
+No exhaustive classification of infrared phases is asserted.
+
+Status: implemented.
+
+## CP9 — Staggered lattice structure
+Formalize the staggered lattice site, parity sign, `U(1)_ε` phase, staggered
+field transformation, and round-trip transformation identity.
+
+This checkpoint does not claim that the formalized transformation by itself
+establishes action/measure invariance or the concrete parity-partner relation
+for measured lattice operators.
+
+Status: implemented.
 
 ## CP10 — Evidence → theorem boundary
-Keep four levels explicit: lattice/numerical correlators; evidence for unbroken symmetry; kernel-checked conditional implications; spectral/physical interpretation.
+Represent validity on a specified sample separately from universal validity
+and exhibit that sample validity alone supplies no universal implication.
+
+This keeps numerical evidence distinct from a kernel-checked theorem whose
+assumptions are explicitly stated.
+
+Status: implemented.
 
 ## CP11 — Anomaly obstruction
-Longer-term target: formalize enough symmetry, gauging, 't Hooft anomaly, anomaly matching, and IR structure to state an obstruction to a trivially gapped symmetry-preserving IR. Do not approximate this with an overstrong propositional placeholder.
+Formalize the arithmetic Spin-`Z₄` anomaly-cancellation condition
+
+`8 ∣ Nf * Nc`
+
+and verify it for the specified `Nf = 4`, `Nc = 2` and `Nf = 8`, `Nc = 3`
+examples.
+
+Separately formalize the logical necessary-condition implication:
+
+`AllowedInPrinciple → AnomalyFree`
+
+together with
+
+`¬ AnomalyFree`
+
+implies
+
+`¬ AllowedInPrinciple`.
+
+This does not formalize an anomaly class, anomaly matching, gauging, or prove
+that anomaly freedom dynamically produces a symmetric gapped phase.
+
+Status: implemented and kernel-checked.
 
 ## CP12 — RG / fixed-point model
-Retain beta functions and the IR/UV fixed-point-merger model as a secondary target. The goal is explicit assumptions and consequences, rather than kernel-checking elementary algebra alone.
+Represent a merged fixed point algebraically by requiring the beta function
+to contain
 
-## First deliverable for review
-1. Identify the exact source symmetry transformation and partner operators.
-2. Show the theorem in ordinary mathematical notation.
-3. Show the corresponding Lean theorem.
-4. Document every assumption.
-5. Prove it with no `sorry`.
-6. Confirm `lake build`.
-7. Explain what the Lean kernel checked and what remains physical/numerical input.
+`(g - g*)²`
 
-The first-result README should be understandable to a physicist with no prior Lean experience.
+as a factor, i.e. a zero of multiplicity at least two at `g*`.
+
+Prove that the quadratic polynomial model satisfies this specification.
+
+This formalizes the source-backed quadratic-zero structure without inferring
+that measured RG flow in a particular gauge theory realizes the model.
+
+Status: implemented and kernel-checked.
+
+## Review boundary
+
+The completed repository follows the chain:
+
+`source statement`
+→ `explicit specification`
+→ `Lean theorem`
+→ `kernel-checked implication`
+→ `separate physical interpretation`
+
+The Lean kernel checks the formal implications from encoded assumptions.
+Numerical realization, continuum applicability, and physical interpretation
+remain separate unless explicitly represented as assumptions.
+
+## Verification
+
+The complete repository builds successfully with the pinned Lean/mathlib
+toolchain.
+
+The Lean source contains no `sorry` or `admit`.
+
+See [SPECIFICATION.md](SPECIFICATION.md) for the formalization boundaries and
+[README.md](README.md) for the project overview.
